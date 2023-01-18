@@ -13,9 +13,12 @@ import { postValidation } from "./validation/posts.js";
 import handleValidationErrors from "./utils/handleValidationErrors.js";
 import { createComment, getAllComments, getComments } from './controllers/CommentController.js';
 
+const ADMIN_MONGO = 'pegas007';
+const PASS_MONGO = 'CGez8Q4p';
+const DATABASE = 'socium';
 
-//mongodb+srv://pegas007:CGez8Q4p@pegascluster.5mxspgp.mongodb.net/socium?retryWrites=true&w=majority
-mongoose.connect(process.env.REACT_API_MONGODB_URL)
+
+mongoose.connect(`mongodb+srv://${ADMIN_MONGO}:${PASS_MONGO}@pegascluster.5mxspgp.mongodb.net/${DATABASE}?retryWrites=true&w=majority`)
   .then(() => {
     console.log('DB connect')
   })
@@ -78,7 +81,7 @@ app.post("/upload", checkAuth, upload.single('image'), (req, res) => {
   })
 });
 
-app.listen(process.env.REACT_API_PORT || 3001, () => {
+app.listen(3001, () => {
   console.log('server on http://localhost:3001');
 });
 
