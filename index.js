@@ -15,7 +15,7 @@ import { createComment, getAllComments, getComments } from './controllers/Commen
 
 
 //mongodb+srv://pegas007:CGez8Q4p@pegascluster.5mxspgp.mongodb.net/socium?retryWrites=true&w=majority
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect(process.env.REACT_API_MONGODB_URL)
   .then(() => {
     console.log('DB connect')
   })
@@ -78,7 +78,7 @@ app.post("/upload", checkAuth, upload.single('image'), (req, res) => {
   })
 });
 
-app.listen(process.env.PORT || 3001, () => {
+app.listen(process.env.REACT_API_PORT || 3001, () => {
   console.log('server on http://localhost:3001');
 });
 
