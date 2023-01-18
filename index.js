@@ -81,6 +81,8 @@ app.post("/upload", checkAuth, upload.single('image'), (req, res) => {
   })
 });
 
+//test
+
 app.listen(3001, () => {
   console.log('server on http://localhost:3001');
 });
