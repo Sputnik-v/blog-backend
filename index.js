@@ -40,6 +40,8 @@ const storage = multer.diskStorage({
   },
 });
 
+const _PORT = process.env.PORT;
+
 const upload = multer({ storage });
 
 app.use(express.json());
@@ -76,7 +78,7 @@ app.get('/comments', getAllComments);
 
 app.post("/upload", checkAuth, upload.single('image'), (req, res) => {
   res.json({
-    url: `http://localhost:3001/uploads/${req.file.originalname}`,               //Загружаем под оригинальным названием
+    url: `http://localhost:${_PORT}/uploads/${req.file.originalname}`,               //Загружаем под оригинальным названием
 
   })
 });
