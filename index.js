@@ -17,6 +17,8 @@ const ADMIN_MONGO = 'pegas007';
 const PASS_MONGO = 'CGez8Q4p';
 const DATABASE = 'socium';
 
+const myDomen = 'https://blog-news-cjvy.onrender.com';
+
 
 mongoose.connect(`mongodb+srv://${ADMIN_MONGO}:${PASS_MONGO}@pegascluster.5mxspgp.mongodb.net/${DATABASE}?retryWrites=true&w=majority`)
   .then(() => {
@@ -78,7 +80,7 @@ app.get('/comments', getAllComments);
 
 app.post("/upload", checkAuth, upload.single('image'), (req, res) => {
   res.json({
-    url: `http://localhost:${_PORT}/uploads/${req.file.originalname}`,               //Загружаем под оригинальным названием
+    url: `${myDomen}:${_PORT}/uploads/${req.file.originalname}`,               //Загружаем под оригинальным названием
 
   })
 });
