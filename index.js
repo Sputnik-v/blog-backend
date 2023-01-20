@@ -80,7 +80,7 @@ app.get('/comments', getAllComments);
 
 app.post("/upload", checkAuth, upload.single('image'), (req, res) => {
   res.json({
-    url: `/uploads/${req.file.originalname}`,               //Загружаем под оригинальным названием
+    url: `${myDomen}/uploads/${req.file.originalname}`,               //Загружаем под оригинальным названием
 
   })
 });
